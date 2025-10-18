@@ -21,12 +21,12 @@ jobs:
       run: docker build . --file Dockerfile --tag chatgpt-clone:latest
     
     - name: Save Docker image
-      run: docker save deepsite:latest | gzip > chatgpt-clone.tar.gz
+      run: docker save chatgpt-clone:latest | gzip > chatgpt-clone.tar.gz
     
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: deepsite-image
+        name: chatgpt-clone-image
         path: chatgpt-clone.tar.gz
         compression-level: 0
     
